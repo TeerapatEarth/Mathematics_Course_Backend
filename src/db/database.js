@@ -12,7 +12,7 @@ exports.connect = () => {
       console.log("Successfully connected to database");
     })
     .catch((error) => {
-      console.log("Error connecting to database123");
+      console.log("Error connecting to database");
       console.error(error);
       process.exit(1);
     });
