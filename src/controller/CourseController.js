@@ -42,7 +42,7 @@ const CourseController = {
             })
             res.status(200).json("Update Course")
         } catch (err){
-            res.status(400).json("Invalid Course ID")
+            res.status(400).json("Invalid Course ID.")
         }
     },
     deleteCourse: async function(req, res, next){
@@ -51,7 +51,7 @@ const CourseController = {
             await Course.findByIdAndRemove(id)
             res.status(200).json("Delete Course")
         } catch (err){
-            res.status(400).json("Invalid Course ID")
+            res.status(400).json("Invalid Course ID.")
         }
     }
 }
