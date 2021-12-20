@@ -47,7 +47,7 @@ const CourseController = {
     },
     deleteCourse: async function(req, res, next){
         try {
-            const { id } = req.body
+            const { id } = req.params
             await Course.findByIdAndRemove(id)
             res.status(200).json("Delete Course")
         } catch (err){
