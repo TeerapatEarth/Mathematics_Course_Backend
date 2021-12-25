@@ -6,9 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "https://frontend-mathmetics.herokuapp.com/",
+      "http://localhost:3000/",
+    ],
     credentials: true,
-    optionSuccessStatus: 200,
   })
 );
 
