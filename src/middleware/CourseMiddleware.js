@@ -1,18 +1,20 @@
 const multer = require("multer");
-const path = require("path");
-
-var storage = multer.diskStorage({
-  filename: function (req, file, callback) {
-    // set file name
-    callback(
-      null,
-      `${file.originalname}-${Date.now()}${path.extname(file.originalname)}`
-    );
+const { GridFsStorage } = require("multer-gridfs-storage");
+const storage = new GridFsStorage({
+  url: "mongodb+srv://teerapat:Earth241043+@cluster0.fa0u1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      const filename = file.originalname;
+      const fileInfo = {
+        filename: filename,
+        bucketName: "imageBucket",
+      };
+      resolve(fileInfo);
+    });
   },
 });
 
 const upload = multer({
-  storage: storage,
+  storage,
 });
-
-module.exports = upload
+module.exports = upload;

@@ -9,5 +9,7 @@ router.get("/course/:id", CourseController.getOneCourse)
 router.post("/course/create", middleware.single("image"), CourseController.createCourse)
 router.put("/course/update/:id", middleware.single("image"), CourseController.updateCourse)
 router.delete("/course/delete/:id", CourseController.deleteCourse)
+router.post("/upload", middleware.single("file"), CourseController.uploadFile)
+router.get("/file/:id", CourseController.readFile)
 
 module.exports = router
